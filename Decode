@@ -1,0 +1,21 @@
+function rot13(str) { 
+  str = str.split('').map(cipher).join('');
+  return str;
+}
+
+function cipher(letter) {
+  var sortOut = /[^a-zA-Z]/g;
+  if (sortOut.test(letter)) {
+    return letter;
+  }
+  var asciiCode = letter.charCodeAt(0);
+  if (asciiCode > 77) {
+    asciiCode -= 13;
+  } else {
+    asciiCode += 13;
+  }
+  return String.fromCharCode(asciiCode);
+}
+
+// Change the inputs below to test
+rot13("SERR PBQR PNZC");
